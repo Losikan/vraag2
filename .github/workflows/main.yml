@@ -10,8 +10,7 @@ jobs:
     steps:
     - name: do wordcount then put output to text file
       run: |
-        ls
-        wc -l ./helloworld.js > /tmp/linesofcode.txt
+        wc -l /helloworld.js > /tmp/linesofcode.txt
     - name: Send email
       uses: devellany/send-mail@v1.0.2
       with:
