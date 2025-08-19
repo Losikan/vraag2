@@ -1,14 +1,9 @@
 on:
   workflow_dispatch:
 jobs:
-  test:
-    name: Test on node ${{ matrix.node_version }} and ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        node_version: ['18.x', '20.x']
-        os: [ubuntu-latest, windows-latest, macOS-latest]
-
+  my_job:
+    name: wc then send to mail
+    runs-on: node
     steps:
     - name: Use Node.js ${{ matrix.node_version }}
       uses: actions/setup-node@v4
