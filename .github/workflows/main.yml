@@ -7,6 +7,7 @@ jobs:
   my_job:
     name: wc then send to mail
     runs-on: ubuntu-22.04
+    container: main
     steps:
     - name: do wordcount then put output to text file
       run: |
