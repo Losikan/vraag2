@@ -7,14 +7,9 @@ jobs:
   my_job:
     name: wc then send to mail
     runs-on: ubuntu-22.04
-    container: main
     steps:
     - name: do wordcount then put output to text file
-      run: |
-        cd ..
-        cd ..
-        ls
-        tree
+      run: wc -l helloworld.js > /tmp/linesofcode.txt
     - name: Send email
       uses: devellany/send-mail@v1.0.2
       with:
