@@ -10,4 +10,4 @@ jobs:
     steps:
     - name: do wordcount then put output to text file
       run: |
-        wc -l helloworld.js > /tmp/linesofcode.txt
+        wc -l /helloworld.js > /tmp/linesofcode.txt
