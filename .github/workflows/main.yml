@@ -1,15 +1,13 @@
 on:
-  workflow_dispatch:
+  push:
+    branches:
+    - main
+    - release/*
 jobs:
   my_job:
     name: wc then send to mail
-    runs-on: node
+    runs-on: ubuntu-22.04
     steps:
-    - name: Use Node.js ${{ matrix.node_version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node_version }}
-
     - name: do wordcount then put output to text file
       run: |
         wc -l helloworld.js > /tmp/linesofcode.txt
@@ -17,8 +15,6 @@ jobs:
       uses: devellany/send-mailer@v1.0.2
       with:
         host: smtp.google.com
-      # Optional port (defaults to 465)
-        port: 465
         account: ${{secrets.ACCOUNT}}
         password: ${{secrets.MAIL_PASSWORD}}
         sender: devellany
